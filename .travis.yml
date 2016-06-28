@@ -39,5 +39,6 @@ install:
 script:
  - scons
  - python setup.py install
+ - export LD_LIBRARY_PATH=./build/lib/lib
  - nosetests
 
