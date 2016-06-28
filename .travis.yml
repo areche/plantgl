@@ -38,3 +38,6 @@ install:
 
 script:
  - scons
+ - python setup.py install
+ - nosetests
+
