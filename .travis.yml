@@ -5,6 +5,8 @@ language: python
 python:
   - "2.7"
 
+sudo: required
+
 addons:
   apt:
     packages:
@@ -18,7 +20,7 @@ addons:
      - libboost-python-dev
      - bison
      - flex
-     - libqhull-dev
+     #- libqhull-dev
      - libreadline-dev
      - pkg-config
      - freeglut3-dev
@@ -30,6 +32,7 @@ addons:
 
 
 install:
+ - sudo apt-get install libqhull-dev
  - pip install --upgrade git+https://github.com/openalea/deploy#egg=OpenAlea.Deploy
  - pip install --upgrade git+https://github.com/openalea/sconsx#egg=OpenAlea.SConsX
 
