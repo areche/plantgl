@@ -185,8 +185,12 @@
     \brief Include hash ccontainer as extension of STL
 */
 
-#define USING_UNORDERED_MAP
 
+#if __cplusplus < 201103
+#define USING_OLD_HASHMAP
+#else
+#define USING_UNORDERED_MAP
+#endif
 
 #if defined(__GNUC__)
   #ifndef GNU_STL_EXTENSION
@@ -262,7 +266,7 @@
  #   pragma warning (disable : 4250) //  'class' : inherits 'member' via dominance
  #   pragma warning (disable : 4251) //  class 'type' needs to have dll-interface to be used by clients of class 'type2'
  #   pragma warning (disable : 4275) //  DLL-interface classkey 'identifier' used as base for DLL-interface classkey 'identifier'
- #   pragma warning (disable : 4503) //  decorated name length exceeded, name was truncated 
+ #   pragma warning (disable : 4503) //  decorated name length exceeded, name was truncated
  #   pragma warning ( 1 : 4996)      //  'function' has been declared deprecated
 #endif
 
