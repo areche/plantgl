@@ -98,7 +98,11 @@
 #include "configuration.h"
 #include "util_qwidget.h"
 
+#ifdef USING_QMAKE
+#include "ui_frameglsizedialog.h"
+#else
 #include "interface/frameglsizedialog.h"
+#endif
 
 #include <plantgl/tool/util_enviro.h>
 

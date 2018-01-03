@@ -51,8 +51,11 @@
 
 #include "browser.h"
 #include "scenegl.h"
+#ifdef USING_QMAKE
+#include "ui_qbrowser.h"
+#else
 #include "interface/qbrowser.h"
-
+#endif
 /* ----------------------------------------------------------------------- */
 
 

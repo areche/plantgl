@@ -50,7 +50,11 @@
 
 /// Viewer
 #include "../base/util_qwidget.h"
+#ifdef USING_QMAKE
+#include "ui_approximation.h"
+#else
 #include "interface/approximation.h"
+#endif
 #include "util_qstring.h"
 #include "geomevent.h"
 #include "materialeditor.h"

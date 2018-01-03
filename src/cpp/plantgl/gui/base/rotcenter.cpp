@@ -32,7 +32,11 @@
  */				
 
 #include "rotcenter.h"
+#ifdef USING_QMAKE
+#include "ui_rotcenteredit.h"
+#else
 #include "interface/rotcenteredit.h"
+#endif
 #include "icons.h"
 #include "glframe.h"
 #include "scenegl.h"

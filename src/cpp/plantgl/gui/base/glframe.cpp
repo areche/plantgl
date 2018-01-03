@@ -105,8 +105,13 @@
 #include "errordialog.h"
 #include "util_qwidget.h"
 #include "configuration.h"
+#ifdef USING_QMAKE
+#include "ui_gloptions.h"
+#include "ui_linewidthcontrol.h"
+#else
 #include "interface/gloptions.h"
 #include "interface/linewidthcontrol.h"
+#endif
 
 #include "event.h"
 // #include "editgeomscenegl.h"

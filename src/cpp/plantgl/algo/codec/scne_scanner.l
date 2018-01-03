@@ -59,7 +59,11 @@ TOOLS_USING_NAMESPACE
 #ifdef BISON_HPP
 #include "scne_parser.hpp"
 #else
+#ifdef USING_QMAKE
+#include "scne_parser_yacc.h"
+#else
 #include "scne_parser.cpp.h"
+#endif
 #endif
 
 #ifdef _WIN32 

@@ -46,7 +46,11 @@
 
 #include "clippingplane.h"
 #include "event.h"
+#ifdef USING_QMAKE
+#include "ui_clippingplanewidget.h"
+#else
 #include "interface/clippingplanewidget.h"
+#endif
 #include "icons.h"
 #include "util_qwidget.h"
 //#include "GL/gl.h"

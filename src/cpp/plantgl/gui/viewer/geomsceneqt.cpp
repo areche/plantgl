@@ -49,7 +49,11 @@
 /// Viewer
 #include "util_qstring.h"
 #include "../base/util_qwidget.h"
+#ifdef USING_QMAKE
+#include "ui_codecview.h"
+#else
 #include "interface/codecview.h"
+#endif
 
 #include <plantgl/tool/util_string.h>
 

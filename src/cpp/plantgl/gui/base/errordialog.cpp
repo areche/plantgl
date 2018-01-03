@@ -33,7 +33,11 @@
 
 #include "errordialog.h"
 #include "configuration.h"
+#ifdef USING_QMAKE
+#include "ui_messagedisplayer.h"
+#else
 #include "interface/messagedisplayer.h"
+#endif
 #include <QtGui/qevent.h>
 #include <QtGui/qclipboard.h>
 #include <QtCore/qstringlist.h>

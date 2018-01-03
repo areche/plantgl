@@ -65,8 +65,13 @@
 
 #include "filemanager.h"
 #include "camera.h"
+#ifdef USING_QMAKE
+#include "ui_cameraqt.h"
+#include "ui_cameraqt2.h"
+#else
 #include "interface/cameraqt.h"
 #include "interface/cameraqt2.h"
+#endif
 #include "icons.h"
 #include "glframe.h"
 #include "event.h"

@@ -52,7 +52,11 @@
 #include "fog.h"
 #include "icons.h"
 #include "util_qwidget.h"
+#ifdef USING_QMAKE
+#include "ui_fogwidget.h"
+#else
 #include "interface/fogwidget.h"
+#endif
 #include <assert.h>
 #include <iostream>
 

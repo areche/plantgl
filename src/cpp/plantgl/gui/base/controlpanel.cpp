@@ -69,7 +69,11 @@
 #include "scenegl.h"
 #include "icons.h"
 #include "util_qwidget.h"
+#ifdef USING_QMAKE
+#include "ui_controlpanelwidget.h"
+#else
 #include "interface/controlpanelwidget.h"
+#endif
 
 PGL_USING_NAMESPACE
 

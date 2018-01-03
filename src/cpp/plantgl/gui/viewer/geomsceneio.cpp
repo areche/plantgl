@@ -64,7 +64,11 @@
 
 #include "linetree.h"
 #include "reader.h"
+#ifdef USING_QMAKE
+#include "ui_importselection.h"
+#else
 #include "interface/importselection.h"
+#endif
 
 /// Qt
 #include <QtGlobal>
