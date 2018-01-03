@@ -227,7 +227,7 @@ static int parant = 0;
    %option c++ is equivalent to compiling with flex++.
    %option yyclass only applies when generating a C++ scanner (-+
    option).  It informs flex that you have derived foo as a subclass
-   of yyFlexLexer, so flex will place your actions in the member func­
+   of yyFlexLexer, so flex will place your actions in the member func
    tion foo::yylex() instead of yyFlexLexer::yylex().  It also
    generates a yyFlexLexer::yylex() member function that emits a
    run-time error (by invoking yyFlexLexer::LexerError()) if called.
