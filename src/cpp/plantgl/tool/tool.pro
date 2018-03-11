@@ -19,9 +19,6 @@ HEADERS = \
     bfstream.h \
     dirnames.h \
     errormsg.h \
-    gparser.h \
-    gscanner.h \
-    gscanner_imp.h \
     gsmbtable.h \
     rcobject.h \
     readline.h \
@@ -41,4 +38,9 @@ HEADERS = \
     util_tuple.h \
     util_types.h \
     tools_config.h
-    
+
+!UnityModule {
+    HEADERS += gparser.h \
+               gscanner.h \
+               gscanner_imp.h
+}

@@ -8,7 +8,7 @@ QT += opengl
 CONFIG += create_prl link_prl
 
 LIBS += -L$${OUT_PWD}/../tool -lTool
-LIBS += -L$${OUT_PWD}/../scenegraph -lSceneGraph
+    LIBS += -L$${OUT_PWD}/../scenegraph -lSceneGraph
 LIBS += -L$${OUT_PWD}/../math -lMath
 
 #CONFIG += QHull
@@ -159,5 +159,7 @@ HEADERS = \
     algo_config.h
 
 
-LEXSOURCES = codec/scne_scanner.l
-YACCSOURCES = codec/scne_parser.y
+!UnityModule {
+    LEXSOURCES = codec/scne_scanner.l
+    YACCSOURCES = codec/scne_parser.y
+}

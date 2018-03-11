@@ -17,5 +17,7 @@ algo.depends = math tool scenegraph
 SUBDIRS = math tool scenegraph algo
 
 !android {
+
+!UnityModule {
     SUBDIRS += gui
 }
