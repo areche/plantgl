@@ -698,6 +698,8 @@ public:
   inline bool isTexCoordIndexListToDefault() const 
   { return (!__texCoordIndexList); }
 
+  inline void setTexCoordIndexListAsIndexList() { __indexList = __texCoordIndexList; }
+
   protected:
 
   /// The \b IndexList field.
