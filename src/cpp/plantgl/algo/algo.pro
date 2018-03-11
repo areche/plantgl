@@ -3,8 +3,6 @@ include(../plantgl.pri)
 TARGET = Algo
 TEMPLATE = lib
 
-QT += opengl
-
 CONFIG += create_prl link_prl
 
 LIBS += -L$${OUT_PWD}/../tool -lTool
@@ -14,6 +12,8 @@ LIBS += -L$${OUT_PWD}/../math -lMath
 #CONFIG += QHull
 
 #CONFIG += CGAL
+
+#CONFIG += OpenGL
 
 INCLUDEPATH += ../..
 INCLUDEPATH += codec
@@ -73,13 +73,6 @@ SOURCES = \
     fitting/fit.cpp \
     fitting/miniball.cpp \
     fitting/skeleton.cpp \
-    opengl/glbboxrenderer.cpp \
-    opengl/glctrlptrenderer.cpp \
-    opengl/glrenderer.cpp \
-    opengl/glskelrenderer.cpp \
-    opengl/gltransitionrenderer.cpp \
-    opengl/util_glu.cpp \
-    opengl/util_glut.cpp \
     raycasting/ray.cpp \
     raycasting/rayintersection.cpp \
     raycasting/util_intersection.cpp \
@@ -134,15 +127,6 @@ HEADERS = \
     fitting/miniball.h \
     fitting/miniball_config.h \
     fitting/skeleton.h \
-    opengl/glbboxrenderer.h \
-    opengl/glctrlptrenderer.h \
-    opengl/glrenderer.h \
-    opengl/glskelrenderer.h \
-    opengl/gltransitionrenderer.h \
-    opengl/util_appegl.h \
-    opengl/util_gl.h \
-    opengl/util_glu.h \
-    opengl/util_glut.h \
     raycasting/ray.h \
     raycasting/rayintersection.h \
     raycasting/util_intersection.h \
@@ -158,6 +142,30 @@ HEADERS = \
     grid/voxelintersection.h \
     algo_config.h
 
+OpenGL {
+
+    QT += opengl
+
+    DEFINES += USE_OPENGL
+
+    SOURCES += opengl/glbboxrenderer.cpp \
+                opengl/glctrlptrenderer.cpp \
+                opengl/glrenderer.cpp \
+                opengl/glskelrenderer.cpp \
+                opengl/gltransitionrenderer.cpp \
+                opengl/util_glu.cpp \
+                opengl/util_glut.cpp
+
+    HEADERS += opengl/glbboxrenderer.h \
+                opengl/glctrlptrenderer.h \
+                opengl/glrenderer.h \
+                opengl/glskelrenderer.h \
+                opengl/gltransitionrenderer.h \
+                opengl/util_appegl.h \
+                opengl/util_gl.h \
+                opengl/util_glu.h \
+                opengl/util_glut.h
+}
 
 !UnityModule {
     LEXSOURCES = codec/scne_scanner.l
