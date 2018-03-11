@@ -5,9 +5,15 @@ TEMPLATE = lib
 
 CONFIG += create_prl link_prl
 
-LIBS += -L$${OUT_PWD}/../tool -lTool
+win32 {
+    build_pass:CONFIG(debug, debug|release) {
+        LIBS += -L$${OUT_PWD}/../scenegraph/debug -lSceneGraph
+    } else {
+        LIBS += -L$${OUT_PWD}/../scenegraph/release -lSceneGraph
+    }
+} else {
     LIBS += -L$${OUT_PWD}/../scenegraph -lSceneGraph
-LIBS += -L$${OUT_PWD}/../math -lMath
+}
 
 #CONFIG += QHull
 
