@@ -3,22 +3,11 @@ include(../plantgl.pri)
 TARGET = SceneGraph
 TEMPLATE = lib
 
-CONFIG += create_prl link_prl
+CONFIG += link_prl
 
 INCLUDEPATH += ../..
 
-win32 {
-    build_pass:CONFIG(debug, debug|release) {
-        LIBS += -L$${OUT_PWD}/../tool/debug -lTool
-        LIBS += -L$${OUT_PWD}/../math/debug -lMath
-    } else {
-        LIBS += -L$${OUT_PWD}/../tool/release -lTool
-        LIBS += -L$${OUT_PWD}/../math/release -lMath
-    }
-} else {
-    LIBS += -L$${OUT_PWD}/../tool -lTool
-    LIBS += -L$${OUT_PWD}/../math -lMath
-}
+LIBS += -lTool -lMath
 
 CGAL {
     LIBS += cgal-vc80-mt.lib

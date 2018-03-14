@@ -3,8 +3,6 @@ include(../plantgl.pri)
 TARGET = Math
 TEMPLATE = lib
 
-CONFIG += create_prl
-
 INCLUDEPATH += ../..
 
 SOURCES = \

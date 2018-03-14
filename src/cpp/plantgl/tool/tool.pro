@@ -3,8 +3,6 @@ include(../plantgl.pri)
 TARGET = Tool
 TEMPLATE = lib
 
-CONFIG += create_prl
-
 SOURCES = \
     bfstream.cpp \
     dirnames.cpp \

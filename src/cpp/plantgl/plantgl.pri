@@ -1,4 +1,11 @@
+include(../../../config.pri)
+
 DEFINES += USING_QMAKE
+
+CONFIG += create_prl c++14
+
+DESTDIR = $$top_builddir/lib
+LIBS += -L$$top_builddir/lib
 
 UnityModule {
     QT -= gui core
@@ -9,6 +16,8 @@ UnityModule {
     DEFINES += PGLMATH_NODLL
     DEFINES += SG_NODLL
     DEFINES += TOOLS_NODLL
+} else {
+    CONFIG += OpenGL
 }
 
 macx {

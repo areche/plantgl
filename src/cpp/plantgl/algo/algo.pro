@@ -3,23 +3,16 @@ include(../plantgl.pri)
 TARGET = Algo
 TEMPLATE = lib
 
-CONFIG += create_prl link_prl
+CONFIG += link_prl
 
-win32 {
-    build_pass:CONFIG(debug, debug|release) {
-        LIBS += -L$${OUT_PWD}/../scenegraph/debug -lSceneGraph
-    } else {
-        LIBS += -L$${OUT_PWD}/../scenegraph/release -lSceneGraph
+LIBS += -lSceneGraph
+
+!contains(CONFIG, static) {
+    LIBS += -lTool -lMath
+    Win32 {
+        DEFINES += ALGO_MAKEDLL
     }
-} else {
-    LIBS += -L$${OUT_PWD}/../scenegraph -lSceneGraph
 }
-
-#CONFIG += QHull
-
-#CONFIG += CGAL
-
-#CONFIG += OpenGL
 
 INCLUDEPATH += ../..
 INCLUDEPATH += codec
@@ -33,10 +26,6 @@ CGAL {
     LIBS += cgal-vc80-mt.lib
     INCLUDEPATH += $(CGALROOT)/include/CGAL/config/msvc $(CGALROOT)/auxiliary/gmp/include
     DEFINES += WITH_CGAL
-}
-
-Win32 {
-    DEFINES += ALGO_MAKEDLL
 }
 
 SOURCES = \

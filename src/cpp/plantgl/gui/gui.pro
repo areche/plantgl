@@ -4,13 +4,11 @@ TARGET = Gui
 TEMPLATE = lib
 
 QT += widgets opengl network printsupport
-CONFIG += create_prl link_prl
+CONFIG += link_prl
 
 INCLUDEPATH += ../..
-LIBS += -L$${OUT_PWD}/../tool -lTool
-LIBS += -L$${OUT_PWD}/../math -lMath
-LIBS += -L$${OUT_PWD}/../scenegraph -lSceneGraph
-LIBS += -L$${OUT_PWD}/../algo -lAlgo
+
+LIBS += -lTool -lMath -lSceneGraph -lAlgo
 
 FORMS = \
      base/interface/cameraqt.ui \
