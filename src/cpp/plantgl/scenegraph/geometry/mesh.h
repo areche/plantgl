@@ -534,6 +534,46 @@ public:
   template<class InstanciedMesh>
   bool isAValidMesh( ) const;
 
+  inline void setTexCoordIndexListAsIndexList()
+  {
+      if (this->__texCoordIndexList == nullptr)
+          return;
+      std::vector<int> tmpCoordIndex(this->__texCoordList->size());
+      int index = 0;
+      for (auto it : *this->__texCoordIndexList)
+      {
+          auto current = this->__indexList->getAt(index);
+          for (auto i = 0; i < current.size(); i++)
+          {
+              tmpCoordIndex[it[i]] = current[i];
+          }
+          index++;
+      }
+
+      bool hasToModifyNormalList = this->__normalList && this->__normalPerVertex;
+      bool hasToModifyColorList = this->__colorList && this->__colorPerVertex;
+
+      Point3ArrayPtr newPoint3Array(new Point3Array());
+      Point3ArrayPtr newNormalArray(new Point3Array());
+      Color4ArrayPtr newColor4Array(new Color4Array());
+      for (auto &it : tmpCoordIndex)
+      {
+          newPoint3Array->push_back(this->__pointList->getAt(it));
+          if (hasToModifyNormalList)
+              newNormalArray->push_back(this->__normalList->getAt(it));
+          if (hasToModifyColorList)
+              newColor4Array->push_back(this->__colorList->getAt(it));
+      }
+
+      this->__pointList = newPoint3Array;
+      this->__indexList = this->__texCoordIndexList;
+      this->__texCoordIndexList = IndexArrayPtr();
+      if (hasToModifyNormalList)
+          this->__normalList = newNormalArray;
+      if (hasToModifyColorList)
+          this->__colorList = newColor4Array;
+  }
+
   /// Returns the size of \b IndexList.
   virtual uint_t getIndexListSize( ) const 
   { return (__indexList?__indexList->size():0); }
@@ -698,7 +738,6 @@ public:
   inline bool isTexCoordIndexListToDefault() const 
   { return (!__texCoordIndexList); }
 
-  inline void setTexCoordIndexListAsIndexList() { __indexList = __texCoordIndexList; }
 
   protected:
 
