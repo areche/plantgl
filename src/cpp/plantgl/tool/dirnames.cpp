@@ -47,6 +47,9 @@
 #include <windows.h>
 #include <Shlwapi.h>
 #define MAXPATHLEN _MAX_PATH
+#else
+#include <limits.h>
+#include <stdlib.h>
 #endif
 
 using namespace std;
