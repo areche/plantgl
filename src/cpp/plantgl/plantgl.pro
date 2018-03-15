@@ -16,8 +16,6 @@ algo.depends = math tool scenegraph
 
 SUBDIRS = math tool scenegraph algo
 
-INCLUDEPATH += /usr/local/include
-
 !UnityModule {
     gui.subdir = gui
     gui.target = gui
