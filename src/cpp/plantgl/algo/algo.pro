@@ -24,7 +24,7 @@ QHull {
 
 CGAL {
     LIBS += cgal-vc80-mt.lib
-    INCLUDEPATH += $(CGALROOT)/include/CGAL/config/msvc $(CGALROOT)/auxiliary/gmp/include
+    INCLUDEPATH += $${CGALROOT}/include/CGAL/config/msvc $${CGALROOT}/auxiliary/gmp/include
     DEFINES += WITH_CGAL
 }
 
