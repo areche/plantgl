@@ -9,7 +9,7 @@ LIBS += -lSceneGraph
 
 !contains(CONFIG, static) {
     LIBS += -lTool -lMath
-    Win32 {
+    win32 {
         DEFINES += ALGO_MAKEDLL
     }
 }
