@@ -46,6 +46,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <Shlwapi.h>
+#pragma comment(lib, "Shlwapi.lib")
 #define MAXPATHLEN _MAX_PATH
 #else
 #include <limits.h>
