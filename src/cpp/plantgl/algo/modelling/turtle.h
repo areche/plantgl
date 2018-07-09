@@ -465,6 +465,8 @@ public:
 	void upReflection();
 	void headingReflection();
 
+    void prefab(const std::string& name, real_t length, real_t topradius);
+
 protected:
     void _setCrossSection(const Curve2DPtr& curve, bool ccw = false, bool defaultSection = false);
 
@@ -495,6 +497,8 @@ protected:
 	virtual void _frame(real_t heigth, real_t cap_heigth_ratio, real_t cap_radius_ratio, real_t color, real_t transparency) { }
 
     virtual void _label(const std::string& text, int size = -1){}
+
+    virtual void _prefab(const std::string& name, real_t length, real_t botradius, real_t topradius) {}
 
     TurtleParam& getParameters()
 	  { return *__params; }

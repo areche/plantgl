@@ -1277,6 +1277,24 @@ void Turtle::_sweep(real_t length, real_t topradius)
 						 __params->crossSection,
 						 __params->crossSectionCCW, true);
 }
+
+void Turtle::prefab(const std::string& name, real_t length, real_t topradius)
+{
+    if (length > 0){
+        if (__params->elasticity > GEOM_EPSILON) {
+            _applyTropism();
+        }
+        if (length > GEOM_EPSILON) {
+            _prefab(name, length, getWidth(), topradius);
+            __params->position += __params->heading*length*getScale().z();
+            __params->axialLength += length;
+        }
+        if (topradius > -GEOM_EPSILON) {
+            setWidth(topradius);
+        }
+    }
+}
+
 /*----------------------------------------------------------*/
 
 //Polyline2DPtr PglTurtle::DEFAULT_CROSS_SECTION(0);
