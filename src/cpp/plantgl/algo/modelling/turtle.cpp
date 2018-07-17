@@ -1278,14 +1278,14 @@ void Turtle::_sweep(real_t length, real_t topradius)
 						 __params->crossSectionCCW, true);
 }
 
-void Turtle::prefab(const std::string& name, real_t length, real_t topradius)
+void Turtle::prefab(const std::string& name, real_t length, real_t topradius, int moduleId)
 {
     if (length > 0){
         if (__params->elasticity > GEOM_EPSILON) {
             _applyTropism();
         }
         if (length > GEOM_EPSILON) {
-            _prefab(name, length, getWidth(), topradius);
+            _prefab(name, length, getWidth(), topradius, moduleId);
             __params->position += __params->heading*length*getScale().z();
             __params->axialLength += length;
         }
